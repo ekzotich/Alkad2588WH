@@ -10,8 +10,8 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
 
-    - name: Install NuGet
+    - name: Download Dependencies
       run: |
-        curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-
-    - name: Install Detours and ImGui via NuGet
+        mkdir dependencies
+        curl -L -o dependencies/detours.zip https://github.com/microsoft/Detours/releases/download/v4.0.2/detours_binaries.zip
+        curl -L -o dependencies/imgui.zip https://github.com/ocornut/imgui/releases/download/v1.91.6/imgui_binaries.zip
